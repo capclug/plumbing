@@ -14,6 +14,8 @@ Check back often, because we'll keep adding more useful namespaces and functions
 Graph is a simple and *declarative* way to specify a structured computation, which is easy to analyze, change, compose, and monitor. Here's a simple example of an ordinary function definition, and its Graph equivalent:
 
 ```clojure
+(use 'plumbing.core)
+
 (defn stats 
   "Take a map {:xs xs} and return a map of simple statistics on xs"
   [{:keys [xs] :as m}]
@@ -28,7 +30,6 @@ Graph is a simple and *declarative* way to specify a structured computation, whi
      :v v   ; variance
      }))
 
-(use 'plumbing.core)
 (def stats-graph
   "A graph specifying the same computation as 'stats'"
   {:n  (fnk [xs]   (count xs))
